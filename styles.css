@@ -1,0 +1,371 @@
+/* General Reset */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(to left, #a3c4bc, #AACEAF); /* Gradient from light green to the new green color (#AACEAF) */
+    color: #efe8e8;  /* Set default text color to white */
+}
+
+/* Make all text inside body white (including headings, paragraphs, etc.) */
+body * {
+    color: white;  /* Set all text color to white */
+}
+
+/* Container for the rounded rectangle */
+.rounded-rectangle {
+    display: inline-block;
+    background-color: white;  /* Background of the rectangle */
+    color: #333;  /* Text color in the rectangle */
+    padding: 15px 30px;
+    border-radius: 20px;  /* Rounded corners */
+    transition: all 0.3s ease;  /* Smooth transition for hover effects */
+    font-size: 1rem;  /* Adjust font size */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);  /* Light shadow for the rectangle */
+}
+
+/* Hover effect on the rounded rectangle */
+.rounded-rectangle:hover {
+    background-color: #94c4b7;  /* Change background color on hover */
+    color: white;  /* Text color turns white on hover */
+    transform: translateY(-5px);  /* Slight upward movement */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);  /* Darker shadow for the hover effect */
+}
+
+/* Header Styling */
+header {
+    background: linear-gradient(to left, #a3c4bc, #AACEAF); /* Same gradient as the body */
+    color: white;
+    padding: 10px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+}
+
+header .logo img {
+    width: 80px;
+    height: auto;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 15px;
+    margin: 0;
+    padding: 0;
+}
+
+nav ul li {
+    margin: 0;
+}
+
+nav ul li a {
+    color: white; /* Ensure links are white */
+    text-decoration: none;
+    font-weight: bold;
+    padding: 8px 15px;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+}
+
+nav ul li a:hover {
+    background-color: #94c4b7; /* Lighter pastel green for hover */
+    color: #fff;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+nav ul li a.active {
+    background-color: #7a9f90;
+    color: white;
+    font-weight: bold;  /* Make the active link text bold */
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);  /* Add a shadow to the active link */
+}
+
+/* SVG Icon Styling */
+.menu-toggle svg {
+    width: 30px; /* Adjust the size of the icon */
+    height: 30px; /* Adjust the size of the icon */
+    fill: white;  /* Make the SVG icon white */
+    cursor: pointer;
+    transition: transform 0.3s ease, fill 0.3s ease;
+}
+
+/* Circle Effect on Click */
+.menu-toggle.open {
+    display: inline-block;
+    padding: 10px;
+    border-radius: 50%; /* Makes the area around the icon circular */
+    background-color: #2e7368; /* Circle background color */
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.3); /* Add shadow around the circle */
+    transition: all 0.3s ease;
+}
+
+.menu-toggle.open svg {
+    transform: rotate(90deg); /* Rotate icon when menu is open */
+    fill: #bae4c6; /* Change the color of the icon */
+}
+
+/* Hover Effect: Slightly enlarge when not open */
+.menu-toggle:not(.open) svg:hover {
+    transform: scale(1.1); /* Enlarge only when not open */
+    fill: #ceedd7; /* Change color on hover */
+}
+
+/* Navbar */
+#navbar {
+    display: flex;
+}
+
+/* For small screens */
+@media (max-width: 768px) {
+    /* Show the hamburger menu icon */
+    .menu-toggle {
+        display: inline-block;
+    }
+
+    /* Initially hide the navbar */
+    #navbar {
+        position: fixed;
+        top: 14.5%;
+        right: -100%; /* Initially position the navbar off-screen to the right */
+        width: 20%; /* Set the width to 80% of the screen */
+        height: 90%;
+        background-color: #AACEAF; /* Same green as the body */
+        box-shadow: -4px 0px 10px rgba(0, 0, 0, 0.3); /* Add shadow to the right side */
+        display: flex;
+        flex-direction: column;
+        transition: right 0.3s ease; /* Smooth transition for sliding in */
+        z-index: 10;
+    }
+
+    /* When the navbar is active, show it */
+    #navbar.active {
+        right: 0; /* Slide the navbar to the right when active */
+    }
+
+    nav ul {
+        flex-direction: column;
+        gap: 10px;
+        margin: 10px 0;
+    }
+
+    nav ul li a {
+        padding: 15px;
+        text-align: center;
+    }
+}
+
+/* For larger screens */
+@media (min-width: 769px) {
+    /* Hide the menu toggle (hamburger) button on larger screens */
+    .menu-toggle {
+        display: none !important; /* Ensure menu icon is hidden */
+    }
+
+    /* Show the navbar */
+    #navbar {
+        display: flex; /* Show the full navbar */
+    }
+}
+
+/* Main Section Styling */
+main {
+    padding: 20px;
+    text-align: center;
+}
+
+h1, h2, h3 {
+    color: white; /* Make headings white */
+}
+
+p {
+    color: rgb(28, 8, 8); /* Ensure paragraphs are white */
+    font-size: 1.1rem;
+    line-height: 1.6;
+}
+
+/* Highlight Paragraph Hover Effect */
+.highlight-paragraph {
+    position: relative;
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: #efe8e8;
+    transition: all 0.3s ease;
+}
+
+/* Hover effect on the highlighted paragraphs */
+/*.highlight-paragraph:hover {
+    background-color: #94c4b7;  /* Light green background on hover */
+   /* color: rgba(14, 7, 7, 0.247); /* Ensure text stays white on hover */
+    /*transform: translateY(-5px); /* Slight upward movement */
+   /* box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Add shadow for depth */
+/*} */
+
+/* Avoid applying this hover effect in the Contact Us or Footer sections */
+footer p, .contact-us p {
+    color: #efe8e8; /* Set default color */
+    font-size: 1rem;
+    line-height: 1.5;
+    transition: none;  /* No transition for contact or footer paragraphs */
+}
+
+/* About Us Section */
+#about-us {
+    text-align: center;
+    padding: 40px;
+    margin-top: 20px;
+}
+
+.about-logo {
+    max-width: 200px;
+    margin-top: 20px;
+}
+
+.about-content p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: rgb(23, 19, 19);
+    margin-top: 20px;
+}
+
+.map {
+    margin-top: 30px;
+}
+
+/* Footer Styling */
+footer {
+    background-color: #000; /* Footer remains black */
+    color: white;
+    text-align: center;
+    padding: 25px 0;
+    margin-top: 20px;
+    box-shadow: 0px -4px 6px rgba(0, 0, 0, 0.1);
+}
+
+footer a {
+    color: #fff;
+    text-decoration: none;
+    margin: 0 10px;
+    font-weight: bold;
+    transition: all 0.3s ease;
+}
+
+footer a:hover {
+    color: #AACEAF; /* Change link color to green on hover */
+    text-decoration: underline;
+}
+
+.social-icons {
+    display: flex;
+    justify-content: center; /* Centers the icons horizontally */
+    align-items: center; /* Centers the icons vertically */
+    gap: 15px; /* Adds space between the icons */
+    margin-top: 20px;
+}
+
+.social-icons a {
+    display: inline-block;
+    margin: 0 15px;
+    font-size: 40px;
+    padding: 10px;   /* Padding around the icons */
+    transition: transform 0.3s ease;
+    font-size: 50px;  /* Icon size (you can adjust this as needed) */
+    
+}
+
+/* Instagram Icon */
+.social-icon-instagram {
+    font-size: 50px;
+    fill: #E4405F; /* Default Instagram icon color */
+   /* transition: transform 0.3s ease, background-color 0.3s ease;
+    /* padding: 15px;
+    border-radius: 50%; /* Circular background 
+    background: #f09433; /* Default Instagram background color 
+    background: -moz-linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%); /* Firefox gradient 
+    background: -webkit-linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%); /* Webkit gradient 
+    background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%); Standard gradient */
+}
+
+/* Hover Effect for Instagram (Enlarge and Sliding Background) */
+.social-icon-instagram:hover {
+    transform: scale(2); /* Enlarge icon on hover */
+    fill: #E4405F; /* Stronger Instagram-like gradient */
+    /*padding: 18px;  /*Increase padding for hover effect */
+}
+
+/* Different Social Media Icon Colors */
+.social-icon-facebook {
+    font-size: 50px;
+    fill: #1877f2; /* Facebook blue */
+   
+}
+.social-icon-facebook:hover {
+    transform: scale(2); /* Enlarge icon on hover */
+    fill: #1877f2;
+}
+
+.social-icon-twitter{
+    font-size: 40px;
+    fill: #1da1f2; /* Twitter blue */
+}
+
+.social-icon-twitter:hover {
+    transform: scale(2); /* Enlarge icon on hover */
+    fill: #1da1f2;
+}
+
+.social-icon-linkedin {
+    font-size: 50px;
+    fill: #0077b5; /* LinkedIn blue */
+}
+
+.social-icon-linkedin:hover {
+    transform: scale(1.5); /* Enlarge icon on hover */
+    fill: 0077b5;
+}
+
+.social-icon-youtube {
+    font-size: 50px;
+    fill: #ff0000; /* YouTube red */
+}
+
+.social-icon-youtube:hover {
+    transform: scale(2); /* Enlarge icon on hover */
+    fill: #ff0000;
+}
+
+.social-icon-whatsapp {
+    font-size: 50px;
+    fill: #25D366; /* WhatsApp green */
+}
+
+.social-icon-whatsapp:hover {
+    transform: scale(2); /* Enlarge icon on hover */
+    fill: #25D366;
+}
+/* Common styles for the social icon link */
+.social-icon-mail {
+    font-size: 50px; /* Icon size */
+    display: inline-block;
+    transition: transform 0.3s ease; /* Smooth transition for scaling */
+}
+
+/* Apply the static Gmail gradient color fill */
+.social-icon-mail svg path {
+    fill: url(#gmail-gradient); /* Reference to gradient */
+}
+
+/* Optional: Enlarge the icon on hover */
+.social-icon-mail:hover {
+    transform: scale(1.5); /* Enlarge the icon */
+}
+
+/* SVG Gradient Definition */
+.social-icon-mail svg {
+    display: block;
+}
+
+
+
